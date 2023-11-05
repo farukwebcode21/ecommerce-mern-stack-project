@@ -1,5 +1,5 @@
 {
-  "name": "ecommerce-mern-project",
+  "name": "e-commerce-mer-project",
   "version": "1.0.0",
   "description": "## Course plan",
   "main": "server.js",
@@ -8,8 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "ecommerce",
-    "mern"
+    "e-commerce",
+    "mer"
   ],
   "author": "",
   "license": "ISC",
