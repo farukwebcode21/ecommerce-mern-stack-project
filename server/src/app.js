@@ -19,7 +19,9 @@ app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(userRouter);
+// User Routers
+
+app.use("/api/users", userRouter);
 
 // understand Middleware working system
 
@@ -33,17 +35,17 @@ app.use(userRouter);
 //   }
 // };
 
-app.get("/", (req, res) => {
-  res.status(200).send({
-    message: "Welcome to the server server locally running",
-  });
-});
+// app.get("/", (req, res) => {
+//   res.status(200).send({
+//     message: "Welcome to the server server locally running",
+//   });
+// });
 
-app.get("/test", (req, res) => {
-  res.status(200).send({
-    message: "Welcome to test route",
-  });
-});
+// app.get("/test", (req, res) => {
+//   res.status(200).send({
+//     message: "Welcome to test route",
+//   });
+// });
 
 // client error handling
 app.use((req, res, next) => {
