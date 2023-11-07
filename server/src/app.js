@@ -4,8 +4,8 @@ const bodyParser = require("body-parser");
 const createError = require("http-errors");
 const xssClean = require("xss-clean");
 const rateLimit = require("express-rate-limit");
+const userRouter = require("./routers/userRouter");
 const app = express();
-
 
 const rateLimiter = rateLimit({
   windowMs: 1 * 60 * 100,
@@ -18,6 +18,8 @@ app.use(xssClean());
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(userRouter);
 
 // understand Middleware working system
 
@@ -40,13 +42,6 @@ app.get("/", (req, res) => {
 app.get("/test", (req, res) => {
   res.status(200).send({
     message: "Welcome to test route",
-  });
-});
-
-app.get("/api/user", (req, res) => {
-  console.log(req.body.id);
-  res.status(200).send({
-    message: "user profile is return",
   });
 });
 
