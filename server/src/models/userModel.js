@@ -23,11 +23,12 @@ const userSchema = new Schema(
         message: "Please enter a valid email",
       },
     },
+
     password: {
       type: String,
       required: [true, "User Password is required"],
       minlength: [6, "Password must be at least 6 characters"],
-      set: (v) => bcrypt.hashSync(v.bcrypt.genSaltSync(10)),
+      set: (v) => bcrypt.hashSync(v, bcrypt.genSaltSync(10)),
     },
     image: {
       type: String,
